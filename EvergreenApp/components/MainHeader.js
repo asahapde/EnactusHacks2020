@@ -2,37 +2,31 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Text
+  Text,
+  Image
 } from 'react-native';
 
 const MainHeader = () => {
   return(
     <View style={styles.header}>
-        <Image source={{uri: 'everGreen_logo1.png'}} styles={styles.img}></Image>
-      <Text style={styles.text}>everGreen</Text>
+      <Image source={require('./everGreen_logo1.png')} styles={styles.img}></Image>
     </View>
   ) 
 }
 
 const styles=StyleSheet.create({
     header: {
-      height: 120,
+      height: 275,
       padding: 15,
       backgroundColor: '#3B5249',
-      borderRadius: 120/6
+      borderBottomLeftRadius: 120/3,
+      borderBottomRightRadius: 120/3
     },
 
     img:{
-
+        width: 362,
+        height: 259
     },
-
-    text: {
-      color: '#A4B494',
-      fontSize: 50,
-      textAlign: 'center'
-    },
-
-
 });
 
 export default MainHeader;
