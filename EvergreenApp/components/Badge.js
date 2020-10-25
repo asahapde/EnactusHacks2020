@@ -1,28 +1,45 @@
 import React from 'react';
-import {StyleSheet, View, Image, Dimensions} from 'react-native';
+import {StyleSheet, View, Image, ImageBackground} from 'react-native';
 
 let images = [
-  '../images/Rectangle.png',
-  '../images/Rectangle.png',
-  '../images/Rectangle.png',
-  '../images/Rectangle.png',
-  '../images/Rectangle.png',
-  '../images/Rectangle.png'
+  require('../images/badge1.png'),
+  require('../images/badge2.png'),
+  require('../images/badge3.png'),
+  require('../images/badge4.png'),
+  require('../images/badge5.png'),
+  require('../images/badge6.png'),
 ];
 
-const Badge = (badgeNumber) => {
+const Badge = (props) => {
+  let picSrc;
+
+  if (props.lock) {
+    picSrc = require('../images/badgeBgLock.png');
+  } else {
+    picSrc = require('../images/badgeBgUnlock.png');
+  }
+
   return (
     <View style={styles.main}>
-      <Image source={require('../images/badgeBgLock.png')}></Image>
+      <ImageBackground source={picSrc} style={styles.bgImg}>
+        <Image source={images[props.badgeNumber]}>
+        </Image>
+      </ImageBackground>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  main: {
-    alignItems: 'center',
-
+  bgImg: {
+    width:70,
+    height:70,
+    justifyContent: "center",
+    alignItems: 'center'
   },
+  main: {
+    margin: 10,
+  },
+
 });
 
 export default Badge;
