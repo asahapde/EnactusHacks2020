@@ -1,12 +1,15 @@
 import React from 'react';
 import {StyleSheet, View, Text, Dimensions} from 'react-native';
 import ProfileHeader from './ProfileHeader';
+import Badge from './Badge';
 
 
 const Profile = () => {
   return (
     <View style={styles.bg}>
         <ProfileHeader/>
+        <Badge/>
+        <Badge/>
     </View>
 
   );

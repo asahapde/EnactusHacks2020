@@ -6,18 +6,22 @@ import {
   Dimensions,
   Image,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
 
 let name = 'Bobby Darloe';
 let currentBadge = 'Planter';
 let totalTreesPlanted = 21;
 
+let menuItems = [
+  {id: 0, name: 'BADGES', currentSelect: true},
+  {id: 1, name: 'LOCATIONS', currentSelect: false},
+  {id: 2, name: 'STATS', currentSelect: false},
+];
+
 const ProfileHeader = () => {
-  const [menuItems, setCurrentItem] = useState([
-    'BADGES',
-    'LOCATIONS',
-    'STATS',
-  ]);
+  const [currentItem, setCurrentItem] = useState(0);
+
   return (
     <View style={styles.header}>
       <Text style={styles.headerText}>Profile</Text>
@@ -30,7 +34,11 @@ const ProfileHeader = () => {
       </Text>
       <FlatList
         data={menuItems}
-        renderItem={({item}) => <Text style={styles.menuText}>{item}</Text>}
+        renderItem={({item}) => (
+          <TouchableOpacity onPress={()=>setCurrentItem(item.id)}>
+            <Text style={ item.id ==  currentItem ? styles.menuTextCurrent : styles.menuText}>{item.name}</Text>
+          </TouchableOpacity>
+        )}
         style={styles.menu}
         horizontal={true}
         contentContainerStyle={styles.menuContainer}
@@ -38,6 +46,7 @@ const ProfileHeader = () => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   header: {
@@ -88,6 +97,15 @@ const styles = StyleSheet.create({
 
   menuText: {
     color: 'white',
+    fontSize: 20,
+    marginRight: 25,
+    marginLeft: 25,
+    fontWeight: '700',
+    alignItems: 'center',
+  },
+
+  menuTextCurrent: {
+    color: '#94C56C',
     fontSize: 20,
     marginRight: 25,
     marginLeft: 25,
