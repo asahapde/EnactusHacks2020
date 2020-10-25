@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "323044182706",
+    "firebase_url": "https://evergreenlogin-f39ec.firebaseio.com",
+    "project_id": "evergreenlogin-f39ec",
+    "storage_bucket": "evergreenlogin-f39ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323044182706:android:becfc70e70c23f4c4b97ab",
+        "android_client_info": {
+          "package_name": "com.Evergreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323044182706-bad3v9er7530gn13cvno4jjcjrkvh3to.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUgfV04zCB32jgahsTJLTVKZYAk7M4ip0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323044182706-bad3v9er7530gn13cvno4jjcjrkvh3to.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
