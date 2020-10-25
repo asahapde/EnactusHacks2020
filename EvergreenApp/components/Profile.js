@@ -9,7 +9,6 @@ const Profile = () => {
   return (
     <View style={styles.bg}>
       <ProfileHeader />
-      
     </View>
   );
 };
