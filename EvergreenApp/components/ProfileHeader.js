@@ -8,6 +8,10 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
+import BadgeHolder from './BadgeHolder';
+import Location from './Location';
+import Stats from './Stats';
+
 
 let name = 'Bobby Darloe';
 let currentBadge = 'Planter';
@@ -19,34 +23,55 @@ let menuItems = [
   {id: 2, name: 'STATS', currentSelect: false},
 ];
 
+
 const ProfileHeader = () => {
   const [currentItem, setCurrentItem] = useState(0);
 
+  let menuItems = [
+    {id: 0, name: 'BADGES'},
+    {id: 1, name: 'LOCATIONS'},
+    {id: 2, name: 'STATS'}
+  ];
+
+
   return (
-    <View style={styles.header}>
-      <Text style={styles.headerText}>Profile</Text>
-      <Image
-        style={styles.imageStyle}
-        source={require('../images/ProfileImage.png')}></Image>
-      <Text style={styles.nameText}>{name}</Text>
-      <Text style={styles.infoText}>
-        {currentBadge} | {totalTreesPlanted} Trees Planted
-      </Text>
-      <FlatList
-        data={menuItems}
-        renderItem={({item}) => (
-          <TouchableOpacity onPress={()=>setCurrentItem(item.id)}>
-            <Text style={ item.id ==  currentItem ? styles.menuTextCurrent : styles.menuText}>{item.name}</Text>
-          </TouchableOpacity>
-        )}
-        style={styles.menu}
-        horizontal={true}
-        contentContainerStyle={styles.menuContainer}
-      />
+    <View>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Profile</Text>
+        <Image
+          style={styles.imageStyle}
+          source={require('../images/ProfileImage.png')}></Image>
+        <Text style={styles.nameText}>{name}</Text>
+        <Text style={styles.infoText}>
+          {currentBadge} | {totalTreesPlanted} Trees Planted
+        </Text>
+        <FlatList
+          data={menuItems}
+          renderItem={({item}) => (
+            <TouchableOpacity onPress={() => setCurrentItem(item.id)}>
+              <Text
+                style={
+                  item.id == currentItem
+                    ? styles.menuTextCurrent
+                    : styles.menuText
+                }>
+                {item.name}
+              </Text>
+            </TouchableOpacity>
+          )}
+          style={styles.menu}
+          horizontal={true}
+          contentContainerStyle={styles.menuContainer}
+        />
+      </View>
+      <View style={styles.bottom}>
+        <BadgeHolder hideMe={currentItem == 0 ? false : true} />
+        <Location hideMe={currentItem == 1 ? false : true} />
+        <Stats hideMe={currentItem == 2 ? false : true} />
+      </View>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   header: {
@@ -121,6 +146,10 @@ const styles = StyleSheet.create({
   menuContainer: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bottom: {
+    height: Dimensions.get('window').height / 2,
     alignItems: 'center',
   },
 });

@@ -4,7 +4,7 @@ import Badge from './Badge';
 
 const BadgeHolder = (props) => {
   return (
-    <View>
+    <View style={props.hideMe ? styles.hidden : styles.notHidden}>
       <View style={styles.bg}>
         <Badge lock={false} badgeNumber={0} />
         <Badge lock={false} badgeNumber={1} />
@@ -27,7 +27,13 @@ const styles = StyleSheet.create({
     borderRadius: Dimensions.get('window').width * 0.05,
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 50
+    marginTop: 50,
+  },
+  hidden: {
+    display: 'none',
+  },
+  notHidden: {
+    display: 'flex',
   },
 });
 
