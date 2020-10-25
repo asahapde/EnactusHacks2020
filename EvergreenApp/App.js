@@ -4,6 +4,7 @@ import {View, StyleSheet} from 'react-native';
 import MainHeader from './components/MainHeader';
 import SignIn from './components/SignIn';
 import Profile from './components/Profile';
+import Leaderboard from './components/Leaderboards';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -47,7 +48,7 @@ const App = () => {
         />
         <Tab.Screen
           name="Profile"
-          component={Profile}
+          component={Leaderboard}
           options={{
             tabBarLabel: 'Leaderboard',
             tabBarIcon: ({color}) => (
